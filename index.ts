@@ -1,7 +1,7 @@
 class Employee {
-    public name: string;
-    private salary: number;
-    private jobTitle: string;
+    name: string;
+    protected salary: number;
+    readonly jobTitle: string;
     
     constructor(name: string, salary: number, jobTitle: string) {
         this.name = name;
@@ -10,16 +10,40 @@ class Employee {
     }
 }
 
-const employees = [
-    new Employee('Ivan', 10000, 'Manager'),
-    new Employee('Andrew', 9000, 'Station Attendant'),
-    new Employee('Pavel', 8000, 'Station Attendant'),
-    new Employee('Vera', 11000, 'Cook'),
-    new Employee('Mary', 7000, 'Mechanic'),
-    new Employee('Gleb', 15000, 'Mechanic'),
-    new Employee('Ivan', 10000, 'Mechanic'),
+class Manager  extends Employee {
+    constructor(name: string, salary: number) {
+        super(name, salary, 'Manager')
+    }
+}
+
+class StationAttendant  extends Employee {
+    constructor(name: string, salary: number) {
+        super(name, salary, 'Station Attendant')
+    }
+}
+
+class Cook  extends Employee {
+    constructor(name: string, salary: number) {
+        super(name, salary, 'Cook')
+    }
+}
+
+class Mechanic  extends Employee {
+    constructor(name: string, salary: number) {
+        super(name, salary, 'Mechanic')
+    }
+}
+
+const employees: Employee[] = [
+    new Manager('Ivan', 10000),
+    new StationAttendant('Andrew', 9000),
+    new StationAttendant('Pavel', 8000),
+    new Cook('Vera', 11000),
+    new Mechanic('Mary', 7000),
+    new Mechanic('Gleb', 15000),
+    new Mechanic('Ivan', 10000),
 ]
 
 for (let i = 0; i < employees.length; i++) {
-    console.log(`${employees[i].name}`)
+    console.log(`${employees[i].jobTitle}: ${employees[i].name}`)
 }
