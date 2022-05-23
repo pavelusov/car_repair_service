@@ -1,35 +1,41 @@
 export class Employee {
-    name: string;
+    protected firstName: string;
+    protected lastName: string;
     protected salary: number;
     readonly jobTitle: string;
 
-    constructor(name: string, salary: number, jobTitle: string) {
-        this.name = name;
+    constructor(firstName: string, lastName: string, salary: number, jobTitle: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.salary = salary;
         this.jobTitle = jobTitle;
+    }
+
+    getFullName(): string {
+        return `${this.firstName} ${this.lastName}`
     }
 }
 
 export class Manager  extends Employee {
-    constructor(name: string, salary: number) {
-        super(name, salary, 'Manager')
+    constructor(firstName: string, lastName: string, salary: number) {
+        super(firstName, lastName, salary, 'Manager')
     }
 }
 
 export class StationAttendant  extends Employee {
-    constructor(name: string, salary: number) {
-        super(name, salary, 'Station Attendant')
+    constructor(firstName: string, lastName: string, salary: number) {
+        super(firstName, lastName, salary,'Station Attendant')
     }
 }
 
 export class Cook  extends Employee {
-    constructor(name: string, salary: number) {
-        super(name, salary, 'Cook')
+    constructor(firstName: string, lastName: string, salary: number) {
+        super(firstName, lastName, salary, 'Cook')
     }
 }
 
 export class Mechanic  extends Employee {
-    constructor(name: string, salary: number) {
-        super(name, salary, 'Mechanic')
+    constructor(firstName: string, lastName: string, salary: number) {
+        super(firstName, lastName, salary,'Mechanic')
     }
 }
