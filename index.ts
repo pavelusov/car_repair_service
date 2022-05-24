@@ -1,4 +1,5 @@
 import { Cook, Employee, Manager, Mechanic, StationAttendant } from "./model/employee";
+import {AccountingReport, StaffingReport} from "./model/report";
 
 const employees: Employee[] = [
     new Manager('Ivan', 'Ivanov', 10000),
@@ -10,6 +11,8 @@ const employees: Employee[] = [
     new Mechanic('Ivan', 'Sidorov', 10000),
 ]
 
-for (let i = 0; i < employees.length; i++) {
-    console.log(`${employees[i].jobTitle}: ${employees[i].getFullName()}`)
-}
+const accountingReport = new AccountingReport(employees);
+accountingReport.print();
+
+const staffingReport = new StaffingReport(employees);
+staffingReport.print();

@@ -1,8 +1,8 @@
 export class Employee {
-    protected firstName: string;
-    protected lastName: string;
-    protected salary: number;
-    readonly jobTitle: string;
+    private firstName: string;
+    private lastName: string;
+    private salary: number;
+    private jobTitle: string;
 
     constructor(firstName: string, lastName: string, salary: number, jobTitle: string) {
         this.firstName = firstName;
@@ -13,6 +13,15 @@ export class Employee {
 
     getFullName(): string {
         return `${this.firstName} ${this.lastName}`
+    }
+
+    getSalary(): number {
+        return this.salary;
+    }
+
+
+    getJobTitle(): string {
+        return this.jobTitle;
     }
 }
 
