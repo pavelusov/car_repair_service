@@ -1,5 +1,5 @@
 import { Cook, Employee, Manager, Mechanic, StationAttendant } from "./model/employee";
-import {AccountingReport, StaffingReport} from "./model/report";
+import { AccountingReport, Report, StaffingReport } from "./model/report";
 
 const employees: Employee[] = [
     new Manager('Ivan', 'Ivanov', 10000),
@@ -11,8 +11,13 @@ const employees: Employee[] = [
     new Mechanic('Ivan', 'Sidorov', 10000),
 ]
 
-const accountingReport = new AccountingReport(employees);
-accountingReport.print();
+const reports: Report[] = [
+    new AccountingReport(employees),
+    new StaffingReport(employees),
+]
 
-const staffingReport = new StaffingReport(employees);
-staffingReport.print();
+reports.forEach(report => {
+    // Polymorphism. We call same method from different subclasses, but the successor of the super class
+    // Polymorphism allows you to share a method name, but to make it behave differently based on the subclass.
+    report.print();
+});

@@ -14,10 +14,8 @@ export abstract class Report {
 
 export class AccountingReport extends Report {
     print(): void {
-        const { length } = this.employees;
         console.log('== Accounting Report ==');
-        for (let i = 0; i < length; i++) {
-            const employee = this.employees[i];
+        for (const employee of this.employees) {
             console.log(`${employee.getFullName()}: ${employee.getSalary()}`)
         }
     }
@@ -25,10 +23,8 @@ export class AccountingReport extends Report {
 
 export class StaffingReport extends Report {
     print(): void {
-        const { length } = this.employees;
         console.log('== Staffing Report ==');
-        for (let i = 0; i < length; i++) {
-            const employee = this.employees[i];
+        for (const employee of this.employees) {
             console.log(`${employee.getFullName()}: ${employee.getJobTitle()}`)
         }
     }
