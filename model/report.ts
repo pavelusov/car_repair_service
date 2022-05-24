@@ -29,3 +29,12 @@ export class StaffingReport extends Report {
         }
     }
 }
+
+export class ScheduleReport extends Report {
+    print(): void {
+        console.log('== Schedule Report ==');
+        for (const employee of this.employees) {
+            console.log(`${employee.getFullName()}: ${employee.getShift()}`)
+        }
+    }
+}

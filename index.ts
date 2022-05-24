@@ -1,19 +1,21 @@
 import { Cook, Employee, Manager, Mechanic, StationAttendant } from "./model/employee";
-import { AccountingReport, Report, StaffingReport } from "./model/report";
+import {AccountingReport, Report, ScheduleReport, StaffingReport} from "./model/report";
+import { afternoonShift, morningShift } from "./model/shift";
 
 const employees: Employee[] = [
-    new Manager('Ivan', 'Ivanov', 10000),
-    new StationAttendant('Andrew', 'Petrov', 9000),
-    new StationAttendant('Pavel', 'Ivanov', 8000),
-    new Cook('Vera', 'Fedorova', 11000),
-    new Mechanic('Mary', 'Ivanova', 7000),
-    new Mechanic('Gleb', 'Petrov', 15000),
-    new Mechanic('Ivan', 'Sidorov', 10000),
+    new Manager('Ivan', 'Ivanov', 10000, morningShift),
+    new StationAttendant('Andrew', 'Petrov', 9000, afternoonShift),
+    new StationAttendant('Pavel', 'Ivanov', 8000, morningShift),
+    new Cook('Vera', 'Fedorova', 11000, afternoonShift),
+    new Mechanic('Mary', 'Ivanova', 7000, afternoonShift),
+    new Mechanic('Gleb', 'Petrov', 15000, morningShift),
+    new Mechanic('Ivan', 'Sidorov', 10000, afternoonShift),
 ]
 
 const reports: Report[] = [
     new AccountingReport(employees),
     new StaffingReport(employees),
+    new ScheduleReport(employees),
 ]
 
 reports.forEach(report => {
